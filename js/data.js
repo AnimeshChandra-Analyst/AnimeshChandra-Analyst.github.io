@@ -18,8 +18,8 @@ const PROJECTS_DATA = [
    {
      featured: true,
      title: "Sweden Job Market Insights",
-     description: "A full data pipeline tracking Sweden's data & analytics job market — dbt and BigQuery for transformation, Claude for AI enrichment, and a Streamlit app surfacing thirteen role types, automated end-to-end with GitHub Actions.",
-     tags: ["dbt", "BigQuery", "Streamlit", "GitHub Actions"],
+     description: "A full data pipeline tracking Sweden's data & analytics job market, using dbt and BigQuery for transformation and a Streamlit app surfacing thirteen role types, automated end-to-end with GitHub Actions.",
+     tags: ["SQL","python","dbt", "BigQuery", "Streamlit", "GitHub Actions"],
      image: "images/sweden-job-market.png",
      repoUrl: "https://github.com/AnimeshChandra-Analyst/Sweden-Job-Market-Insights",
      viewUrl: "https://animeshchandra-analystappio-sweden-job-market.streamlit.app/"
