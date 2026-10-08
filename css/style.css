@@ -2,15 +2,16 @@
    DESIGN TOKENS
    ============================================ */
 :root {
-  --bg: #F1F4F7;
-  --surface: #FFFFFF;
-  --ink: #14213D;
-  --ink-soft: #4A5568;
-  --line: #D8DEE4;
-  --accent: #2D6E7E;
-  --accent-soft: #E4EEF0;
+  --bg: #0B1117;
+  --surface: #121B24;
+  --panel: #16222D;
+  --ink: #E6EDF3;
+  --ink-soft: #94A3B3;
+  --line: #22303C;
+  --accent: #5FB3C4;
+  --accent-soft: rgba(95, 179, 196, 0.12);
   --warm: #E8963C;
-  --warm-soft: #FBEEDC;
+  --warm-soft: rgba(232, 150, 60, 0.14);
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -35,7 +36,12 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background:
+    radial-gradient(900px 600px at 85% -5%, rgba(95, 179, 196, 0.16), transparent 60%),
+    radial-gradient(700px 500px at -10% 35%, rgba(232, 150, 60, 0.08), transparent 60%),
+    linear-gradient(180deg, #0E1720 0%, var(--bg) 55%);
+  background-attachment: fixed;
+  background-color: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -86,7 +92,7 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
   gap: 1rem;
   padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
-  background: rgba(241, 244, 247, 0.85);
+  background: rgba(11, 17, 23, 0.75);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -191,10 +197,10 @@ section h2 {
 .btn:hover { text-decoration: none; }
 
 .btn-primary {
-  background: var(--ink);
-  color: #fff;
+  background: var(--accent);
+  color: #0B1117;
 }
-.btn-primary:hover { background: var(--accent); }
+.btn-primary:hover { background: var(--warm); }
 
 .btn-ghost {
   border: 1px solid var(--line);
@@ -205,10 +211,11 @@ section h2 {
 
 /* KPI panel — signature element */
 .kpi-panel {
-  background: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
   border-radius: 14px;
   padding: 1.25rem 1.25rem 1.5rem;
-  box-shadow: 0 20px 40px -20px rgba(20, 33, 61, 0.5);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
 }
 
 .kpi-panel-header {
