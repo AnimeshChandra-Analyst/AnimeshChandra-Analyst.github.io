@@ -1,9 +1,9 @@
 // Career highlight numbers shown in the hero "KPI panel".
 // Keep it to 3 items so it fits cleanly.
 const KPI_DATA = [
-  { value: "108K+", label: "transactions analyzed in a single project" },
-  { value: "4",     label: "core tools: SQL, Python, Tableau, Power BI" },
-  { value: "2",     label: "degrees spanning engineering and marketing" },
+  { value: "3",    label: "end-to-end data pipelines built and automated" },
+  { value: "30",   label: "dbt models across BigQuery projects" },
+  { value: "100K", label: "customer orders analyzed for churn and LTV" },
 ];
 
 // Set "featured: true" on at most one project to give it the wide layout.
