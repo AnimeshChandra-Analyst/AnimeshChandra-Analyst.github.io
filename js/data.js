@@ -13,8 +13,9 @@ const PROJECTS_DATA = [
     title: "FlowForge GTM Analytics",
     description: "An end-to-end analytics engineering project on a simulated SaaS company. A Python simulator runs FlowForge inside HubSpot and Stripe, the pipeline pulls that data into BigQuery, models it with dbt (PQLs, account health, MRR), pushes results back to the CRM with reverse ETL, and feeds an internal Account Hub app for sales and CS.",
     tags: ["SQL", "Python", "dbt", "BigQuery", "Reverse ETL", "GitHub Actions"],
-    image: "images/flowforge.png",
+    image: "images/flowforge-accounts-2026-11-19.png",
     repoUrl: "https://github.com/AnimeshChandra-Analyst/flowforge-gtm-analytics",
+    viewUrl: "https://flowforge-account-hub.lovable.app/",
     caseStudy: "flowforge-gtm"
   },
   {
@@ -72,37 +73,8 @@ const PROJECTS_DATA = [
 ];
 
 // Case studies rendered by case-study.html. Facts come from the three public
-// repos (READMEs, SQL, and scripts). Don't add a number that isn't in there.
-//
-// TODO(animesh): FlowForge PQL check (24 leads, all Champions) isn't dated.
-// The 17 Nov 2026 table shows 29 sales-opportunity accounts. Say if you
-// re-checked those 29 against the hidden archetypes.
-//
-// TODO(animesh): The FlowForge repo has no screenshots. images/flowforge.png
-// is an older portfolio shot and its totals don't match the 17 Nov write-up.
-// Swap in a current export if you want the picture and the table to agree.
-//
-// TODO(animesh): Commercial README lists Python in the stack, but that repo
-// has no Python file. Say what it was for, or drop it from the stack line.
-//
-// TODO(animesh): Average LTV is 165 in the README and $165.15 on the
-// dashboard. Olist amounts are Brazilian real. Confirm the unit to quote.
-//
-// TODO(animesh): No public Power BI link, only the .pbix in the repo.
-// Add a URL if you've published one.
-//
-// TODO(animesh): Dashboard page 3 has a blank category label. The README
-// doesn't say what that row is.
-//
-// TODO(animesh): Sweden README has no findings and no next-step list.
-// Add a dated snapshot (job count, top skills, top cities) and what's next.
-//
-// TODO(animesh): swedish_job_market/models/staging/sources.yml still says
-// "replace with your actual GCP project ID" next to sweden-job-market-506308.
-// Confirm that id is the live project.
-//
-// TODO(animesh): The Claude script isn't in the daily workflow, and Streamlit
-// doesn't read its table. Confirm it's a side script, not part of the live path.
+// repos, plus the dated screenshots Animesh added on 19 November 2026.
+// Don't add a number that isn't in one of those.
 const CASE_STUDIES = [
   {
     slug: "flowforge-gtm",
@@ -111,17 +83,18 @@ const CASE_STUDIES = [
     tags: ["SQL", "Python", "dbt", "BigQuery", "Reverse ETL", "GitHub Actions", "Lovable"],
     links: [
       { label: "GitHub repo", href: "https://github.com/AnimeshChandra-Analyst/flowforge-gtm-analytics" },
-      { label: "Account Hub", href: "https://flowforge-account-hub.lovable.app" }
+      { label: "Account Hub", href: "https://flowforge-account-hub.lovable.app/" }
     ],
-    statsHeading: "Snapshot, 17 Nov 2026",
+    statsHeading: "Current state, 19 Nov 2026",
     stats: [
-      { value: "608", label: "accounts" },
-      { value: "$9,620", label: "current MRR" },
-      { value: "29", label: "sales-opportunity accounts" },
-      { value: "6", label: "accounts at risk" }
+      { value: "630", label: "accounts" },
+      { value: "$9,580", label: "MRR ($114,960 ARR)" },
+      { value: "163", label: "active paying (25.9%)" },
+      { value: "34", label: "PQLs showing in the app" },
+      { value: "8", label: "accounts at risk" }
     ],
-    statsNote: "These counts are from the repo's write-up on 17 November 2026, about seven weeks into the daily simulation. The live Account Hub moves after every run, so the tiles you see today can differ.",
-    footerNote: "Numbers on this page are from the FlowForge README and the daily workflow file.",
+    statsNote: "As of 19 November 2026, data refreshed at 15:08. These are the Account Hub tiles. The 34 PQLs haven't been checked against the answer key.",
+    footerNote: "The 19 November tiles are from the Account Hub, refreshed at 15:08. The segment table further down is the repo's 17 November write-up. When checked against the answer key on 29 September, all 24 PQLs were Champions. Later PQL lists weren't checked the same way.",
     sections: [
       {
         id: "problem",
@@ -201,8 +174,34 @@ const CASE_STUDIES = [
         id: "findings",
         heading: "What I found",
         blocks: [
+          { type: "p", text: "As of 19 November 2026, data refreshed at 15:08: 630 accounts, $9,580 MRR ($114,960 ARR), 163 active paying accounts (25.9%), 34 PQLs, and 8 accounts at risk. That's what the Account Hub is showing. It isn't a new check of those 34 against the answer key." },
+          { type: "note", text: "The pipeline was down from 10 to 14 November because the Google Cloud trial ended and BigQuery went into sandbox mode. That five-day gap makes the health score look worse than reality for a couple of weeks, which is why some at-risk and watch numbers are higher than usual." },
+          {
+            type: "figure",
+            src: "images/flowforge-accounts-2026-11-19.png",
+            width: 1520,
+            height: 793,
+            alt: "FlowForge Accounts page on 19 November 2026, PQL filter on, showing 34 of 630 accounts.",
+            caption: "Accounts page with the PQL filter on, as of 19 November 2026. Data refreshed at 15:08. The table is those 34 PQLs, not all 630 accounts."
+          },
+          {
+            type: "figure",
+            src: "images/flowforge-account-detail-2026-11-19.png",
+            width: 1342,
+            height: 793,
+            alt: "FlowForge account detail for NordAB, a healthy Team plan account, as of 19 November 2026.",
+            caption: "Account detail for NordAB, as of 19 November 2026."
+          },
+          {
+            type: "figure",
+            src: "images/flowforge-revenue-2026-11-19.png",
+            width: 1366,
+            height: 785,
+            alt: "FlowForge Revenue page with weekly MRR movements from September to November 2026.",
+            caption: "Revenue page, weekly MRR movements, as of 19 November 2026."
+          },
           { type: "p", text: "On 29 September 2026, a few days after the daily simulator started, there were 230 accounts and $2,720 MRR. 45% of accounts had signed up and never come back. That's the Ghost type doing what it was built to do." },
-          { type: "p", text: "By 17 November 2026 the base was 608 accounts and $9,620 MRR, up from those 230 accounts and $2,720." },
+          { type: "p", text: "The repo's write-up on 17 November 2026 had the base at 608 accounts and $9,620 MRR. The segment split below is from that write-up, not from the 19 November tiles." },
           {
             type: "table",
             caption: "Segment totals from the repo, 17 November 2026.",
@@ -220,7 +219,7 @@ const CASE_STUDIES = [
           },
           {
             type: "chart",
-            title: "Current MRR by segment, 17 Nov 2026",
+            title: "MRR by segment, 17 Nov 2026",
             note: "Active free, dormant free, and churned are $0 MRR, so they aren't on this chart. Same snapshot as the table.",
             bars: [
               { label: "Healthy paying", value: 3640, display: "$3,640" },
@@ -229,22 +228,14 @@ const CASE_STUDIES = [
               { label: "At risk", value: 440, display: "$440" }
             ]
           },
-          { type: "note", text: "Watch and at risk are higher than usual in that snapshot. From 10 to 14 November the pipeline failed because the Google Cloud trial ended and BigQuery rejected writes (billing wasn't enabled). There's a five day hole in usage. Health compares the last 14 days with the 14 before, so the hole looks like customers went quiet. The repo says it should settle by early December. The simulator had already changed Stripe and HubSpot on those failed days, so the source systems and the answer key drifted apart until billing was turned back on." },
           { type: "p", text: "A product qualified lead is a company with 50 or more employees and at least 2 of these 3 signals in the last 14 days: 3 or more active users, 80% or more of its monthly credits used, or a new teammate invited. I skipped a 0 to 100 score. A short rule is easier to defend when someone asks why a weight is what it is. Sales time is expensive, so only companies big enough for an Enterprise conversation are worth a call." },
           { type: "p", text: "Health is for paying customers only, and it's rules rather than a model, because success needs to know why an account is red. Red means no activity in 14 days, or usage down by more than half versus the previous 14 days. Yellow means usage down by more than 25%. Everything else is green. Failed payments would be a strong third red signal, but Stripe's test card always succeeds, so every test invoice is paid. That's a later version." },
           { type: "p", text: "The overview mart collapses this into one label: churned, sales opportunity, at risk, watch, dormant free, active free, or healthy paying." },
-          { type: "p", text: "I checked both models against the hidden types, which they can't see. Every account flagged red was a Skeptic Exec. No Champion or Power Solo was flagged red. Of the five paying Skeptic Execs in that check, four came out red or yellow. The model only saw credit usage across two 14 day windows. The PQL model returned 24 leads, and every one was a Champion. No false positives in that check. Power Solos are kept out by the 50 employee rule, and Ghosts barely generate usage. The 17 November table later shows 29 sales-opportunity accounts. The repo doesn't say whether that later group was checked the same way." },
+          { type: "p", text: "When checked against the answer key on 29 September, all 24 PQLs were Champions. No false positives in that check. Power Solos are kept out by the 50 employee rule, and Ghosts barely generate usage. I haven't run that check on the 34 PQLs showing on 19 November." },
+          { type: "p", text: "On the health model, every account flagged red was a Skeptic Exec. No Champion or Power Solo was flagged red. Of the five paying Skeptic Execs in that check, four came out red or yellow. The model only saw credit usage across two 14 day windows. It never saw the hidden types." },
           { type: "p", text: "Identity resolution covered the planted gap. 203 of 225 accounts matched on the id Stripe stores in its metadata. The other 22 had no link at all and were recovered by matching on company name." },
           { type: "p", text: "The revenue page once disagreed with the accounts page, and the app is what exposed it. Ending MRR showed $4,380 while accounts showed $3,820. The gap was $560, exactly that week's expansion. New MRR was using each subscription's current price, so an account that started on Pro and moved to Team was counted as $100 of new revenue, and then the snapshot added the $80 upgrade again. New MRR now uses the price from the first time the snapshot saw that subscription, and a free to paid conversion counts as new, not expansion. After the fix, ending MRR matches total current MRR." },
           { type: "p", text: "In the week of 28 September, $1,680 of the MRR increase came from upgrades and $320 came from new customers. That's existing accounts growing into the product, which is the Champion behaviour showing up from the outside." },
-          {
-            type: "figure",
-            src: "images/flowforge.png",
-            width: 1901,
-            height: 927,
-            alt: "FlowForge Account Hub accounts page, with MRR, paying accounts, PQLs, and a table of companies.",
-            caption: "Accounts page in the Account Hub. This screenshot is the one already on the project card. It isn't stored in the FlowForge repo, and the tiles on it are from a different moment than the 17 November table above. Treat the table as the written snapshot, and the picture as what the app looks like."
-          }
         ]
       },
       {
@@ -291,8 +282,7 @@ const CASE_STUDIES = [
     lede: "Almost nobody comes back. I modelled about 100,000 e-commerce orders to see what, if anything, predicts the few customers who place a second one.",
     tags: ["SQL", "dbt", "BigQuery", "Power BI", "DAX"],
     links: [
-      { label: "GitHub repo", href: "https://github.com/AnimeshChandra-Analyst/Commercial-Analytics-Project" },
-      { label: "Power BI file", href: "https://github.com/AnimeshChandra-Analyst/Commercial-Analytics-Project/blob/main/dashboard/Customer%20Health%20Analysis.pbix" }
+      { label: "GitHub repo", href: "https://github.com/AnimeshChandra-Analyst/Commercial-Analytics-Project" }
     ],
     statsHeading: "The short version",
     stats: [
@@ -310,7 +300,7 @@ const CASE_STUDIES = [
         blocks: [
           { type: "p", text: "I set this up as if a manager had handed me a note. We're losing customers and don't know why. Find out who's leaving, what they're worth, and which group we should focus on." },
           { type: "p", text: "The brief matches the skills that kept showing up in Stockholm ads for commercial, customer, and CRM analyst roles. SQL, a BI tool, churn, retention, lifetime value, segmentation, and a transformation layer on top of the raw tables." },
-          { type: "p", text: "The orders are the public Olist Brazilian e-commerce dataset. It's a stand-in for a company's own data, picked because it has the shape real internal data has: orders, payments, deliveries, reviews, and customers, and they join. This is not a claim about Swedish or Nordic customers." },
+          { type: "p", text: "The orders are the public Olist dataset. It's Brazilian, and I'm using it as a proxy for a company's own orders, because it has the shape real internal data has: orders, payments, deliveries, reviews, and customers, and they join. This isn't a claim about Swedish or Nordic customers. Amounts on this page are Brazilian real (R$)." },
           {
             type: "links",
             items: [
@@ -358,7 +348,7 @@ const CASE_STUDIES = [
         id: "tools",
         heading: "Tools",
         blocks: [
-          { type: "p", text: "The models are SQL, built with dbt, on BigQuery. The dashboard is Power BI. The repeat-rate measure is DAX, so it isn't an average of averages. The .pbix file is in the repo. There isn't a published web link for the report." }
+          { type: "p", text: "The models are SQL, built with dbt, on BigQuery. The dashboard is Power BI. The repeat-rate measure is DAX, so it isn't an average of averages. There isn't a public Power BI link. The report file lives in the GitHub repo." }
         ]
       },
       {
@@ -380,7 +370,7 @@ const CASE_STUDIES = [
             ]
           },
           { type: "p", text: "The monthly cohort matrix shows the same shape. 100% in month 0, then a drop to around 0.4% in month 1, then flat noise between 0.1% and 0.8% with no decay. Individual cells hold 1 to 6 customers, so I don't read anything into one cell versus the next. The matrix is there to show the curve is missing." },
-          { type: "p", text: "Lifetime value is really just the value of that one order. Average LTV is 165, and for 97% of customers that's their only purchase. The README states 165 and doesn't name the currency. The dashboard screenshot shows a dollar sign." },
+          { type: "p", text: "Lifetime value is really just the value of that one order. Average lifetime value is R$165.15 (BRL). Since 97% of customers only buy once, lifetime value is basically average order value. The dashboard file prints a dollar sign on that tile. The currency is Brazilian real." },
           { type: "p", text: "How the first order went doesn't separate the people who came back from the people who didn't." },
           {
             type: "table",
@@ -389,7 +379,7 @@ const CASE_STUDIES = [
             align: ["left", "right", "right"],
             rows: [
               ["Customers", "92,799", "2,975"],
-              ["Avg first order value", "161.72", "148.30"],
+              ["Avg first order value", "R$161.72", "R$148.30"],
               ["Avg rating", "4.09", "4.11"],
               ["Delivered late", "6.9%", "5.7%"],
               ["Rated 1 or 2", "14.7%", "14.4%"]
@@ -414,7 +404,7 @@ const CASE_STUDIES = [
             ]
           },
           { type: "p", text: "The pattern fits the products. Homeware and personal goods get bought again. Electronics, games, and instruments are usually a one-off." },
-          { type: "p", text: "Repeat rate and value point different ways, so neither metric works alone. home_appliances has the best repeat rate, an average value of 138, and only 690 customers. It looks great and barely matters commercially. The highest-value categories sit near the bottom on retention: small appliances at 333, musical instruments at 336, office furniture at 276." },
+          { type: "p", text: "Repeat rate and value point different ways, so neither metric works alone. home_appliances has the best repeat rate, an average value of R$138, and only 690 customers. It looks great and barely matters commercially. The highest-value categories sit near the bottom on retention: small appliances at R$333, musical instruments at R$336, office furniture at R$276." },
           { type: "p", text: "The high-value tier is what settles it. I split customers into thirds of the spending distribution, not round cutoffs I made up. In the model, that's approximate quantiles on customers with a lifetime value of 2,000 or less. The 207 customers above 2,000 stay in their own outlier bucket so they don't stretch the top tier. Customers with no lifetime value are labelled no_revenue. The top third of customers bring in 65% of revenue. The bottom third bring in 10%." },
           { type: "p", text: "Then repeat rate inside the high-value tier, for the categories the README highlights:" },
           {
@@ -439,7 +429,7 @@ const CASE_STUDIES = [
             width: 1381,
             height: 767,
             alt: "Power BI page titled Customer Health Overview, with revenue by tier and a monthly trend from 2017 to 2018.",
-            caption: "Dashboard page 1, where the revenue comes from. Same file as dashboard/page1.png in the project repo."
+            caption: "Dashboard page 1, where the revenue comes from. Same file as dashboard/page1.png in the project repo. The file prints a dollar sign. The amounts are Brazilian real (R$)."
           },
           {
             type: "figure",
@@ -455,7 +445,7 @@ const CASE_STUDIES = [
             width: 1381,
             height: 770,
             alt: "Power BI page titled Acquisition Category, with repeat rate by category and a revenue versus repeat scatter.",
-            caption: "Dashboard page 3, what lines up with a second purchase. Copied from dashboard/page3.png in the project repo. The written tables above use the README figures, which are the precise ones. The charts here are the full category list."
+            caption: "Dashboard page 3, what lines up with a second purchase. Copied from dashboard/page3.png in the project repo. The bar with no name is Uncategorised: products without a category in the dataset. The written tables above use the README figures. The chart here is the full category list."
           }
         ]
       },
@@ -484,7 +474,7 @@ const CASE_STUDIES = [
         heading: "What's next",
         blocks: [
           { type: "ul", items: [
-            "A Nordic review layer. Real Google Play reviews for delivery apps like Budbee, pulled with Python, as a benchmark next to the order data.",
+            "A reviews layer, which isn't in the repo yet. Real Google Play reviews for delivery apps like Budbee, pulled with Python, as a benchmark next to the order data.",
             "dbt tests and documentation for the key models.",
             "A separate project that designs and reads an A/B test properly, instead of simulating one here."
           ] }
@@ -501,15 +491,15 @@ const CASE_STUDIES = [
       { label: "GitHub repo", href: "https://github.com/AnimeshChandra-Analyst/Sweden-Job-Market-Insights" },
       { label: "Live dashboard", href: "https://animeshchandra-analystappio-sweden-job-market.streamlit.app/" }
     ],
-    statsHeading: "How the pull is set up",
+    statsHeading: "Dashboard view, 19 Nov 2026",
     stats: [
-      { value: "13", label: "search terms" },
-      { value: "30", label: "days of ads kept" },
-      { value: "14", label: "skill flags on each ad" },
-      { value: "06:00", label: "UTC, when the job is scheduled" }
+      { value: "169", label: "jobs in this view" },
+      { value: "14", label: "remote" },
+      { value: "150", label: "senior roles" },
+      { value: "31", label: "new in the last 48 hours" }
     ],
-    statsNote: "These are settings in the code, not a market result. The repo doesn't publish a findings write-up, and the live counts change every time the daily job runs.",
-    footerNote: "Pipeline facts are from the ingest script, the dbt models, the Streamlit app, and the GitHub Actions workflow. Where the README and the code disagree, I followed the code.",
+    statsNote: "Taken 19 November 2026. The date range on the dashboard is 21 Oct to 19 Nov 2026, and a city filter is on, so this is that view, not every ad in Sweden.",
+    footerNote: "The 19 November counts are read off the dashboard screenshot. A city filter is on, so they aren't a national total. Pipeline facts are from the ingest script, the dbt models, and the GitHub Actions workflow.",
     sections: [
       {
         id: "problem",
@@ -527,18 +517,18 @@ const CASE_STUDIES = [
           { type: "p", text: "The API ranks by relevance to the search term, not by date. A five month old ad can outrank one from today. So the script doesn't trust the rank. For each term it pulls up to 3 pages of 50 hits, with a short pause between pages. It then keeps ads whose published date is within the last 30 days, drops duplicate ad ids (keeping the first term that found the ad), and loads what's left." },
           { type: "p", text: "Each run replaces the BigQuery table. The write disposition is WRITE_TRUNCATE, into raw.raw_job_ads. The table is the current window, not a history of every ad the pipeline has ever seen. Once an ad ages out of 30 days, the next run doesn't keep it." },
           { type: "p", text: "Columns stored from each hit: id, headline, employer name, city, description text, published time, application deadline, ad url, the API's relevance score, the search term that found it, and an ingested_at timestamp." },
-          { type: "p", text: "Staging throws out blank headlines. Empty cities become Unknown. Published date and deadline are parsed by taking the first 10 characters and safe-casting to a date, so a blank or broken deadline becomes null instead of failing the build. The dbt source is pointed at GCP project sweden-job-market-506308 and dataset raw. The same file still has a comment that says to replace the project id." }
+          { type: "p", text: "Staging throws out blank headlines. Empty cities become Unknown. Published date and deadline are parsed by taking the first 10 characters and safe-casting to a date, so a blank or broken deadline becomes null instead of failing the build. The dbt source points at the live GCP project, sweden-job-market-506308, and dataset raw." }
         ]
       },
       {
         id: "pipeline",
         heading: "The pipeline",
         blocks: [
-          { type: "p", text: "GitHub Actions runs every day at 06:00 UTC, and it can be started by hand. The job checks out the repo, sets up Python 3.13, installs requirements, writes the service account key, ingests, runs dbt in the swedish_job_market folder, and deletes the key even if a step fails. It does not run the Claude script." },
+          { type: "p", text: "GitHub Actions runs every day at 06:00 UTC, and it can be started by hand. The job checks out the repo, sets up Python 3.13, installs requirements, writes the service account key, ingests, runs dbt in the swedish_job_market folder, and deletes the key even if a step fails." },
           {
             type: "diagram",
             title: "Sweden job market pipeline",
-            caption: "The daily job stops at the dbt mart. Streamlit reads that table directly. The Claude script is in the repo and writes a separate table, but the workflow never calls it and the dashboard never reads it.",
+            caption: "The daily job stops at the dbt mart. Streamlit reads that table directly.",
             steps: [
               { name: "JobTech API", detail: "13 search terms" },
               { name: "Python ingest", detail: "Last 30 days" },
@@ -553,30 +543,31 @@ const CASE_STUDIES = [
           { type: "p", text: "A short token will over-match. The SQL flag is a search for the letters sql, so it can light up inside a longer word. Synonyms that don't contain the keyword are missed. The flags are easy to read and easy to get slightly wrong. That's the trade." },
           { type: "p", text: "The Streamlit page is titled Swedish Job Market: Skill and Market Insights. On Streamlit Cloud it connects with the service account stored in the app's secrets. Locally it uses a key file from the environment. Filters sit in the sidebar: city (multi-select), a date range, skills with OR logic (a job stays if it has any of the skills you picked), and a remote-only switch. Cities are title-cased in the app so SOLNA and Solna don't show up as two places." },
           { type: "p", text: "The page shows four counts: jobs in the filter, how many are flagged remote, how many are flagged senior, and how many were published in the last 48 hours. Then a bar chart of skill counts, a bar chart of the top 10 employers, a correlation heatmap of which skill flags appear together (Pearson r, drawn with Altair), and a table of the 15 latest ads (headline, employer, city, published date). If a filter matches nothing, the page says so and stops." },
-          { type: "p", text: "The heatmap colors correlations from 0 to 1. A negative correlation doesn't get its own color. It's still printed as a number on the cell." },
-          { type: "p", text: "scripts/ai_enrichment.py sends up to 100 rows from the mart to Claude (the model id in the script is claude-sonnet-4-6) and asks for a one or two sentence note per row. It writes the result to marts.ai_enriched_mart, replacing that table. The query in the script doesn't include a GCP project id, and the repo doesn't include a log of a successful run against the live mart." }
+          { type: "p", text: "The heatmap colors correlations from 0 to 1. A negative correlation doesn't get its own color. It's still printed as a number on the cell." }
         ]
       },
       {
         id: "tools",
         heading: "Tools",
         blocks: [
-          { type: "p", text: "Python for the API pull and the load into BigQuery. dbt and SQL for the staging view and the skills table. Streamlit for the dashboard, Altair for the heatmap, pandas in both the loader and the app. GitHub Actions for the daily run. The JobTech API is the source. Claude is only in the side script, not in the scheduled job." }
+          { type: "p", text: "Python for the API pull and the load into BigQuery. dbt and SQL for the staging view and the skills table. Streamlit for the dashboard, Altair for the heatmap, pandas in both the loader and the app. GitHub Actions for the daily run. The JobTech API is the source." }
         ]
       },
       {
         id: "findings",
         heading: "What it shows",
         blocks: [
-          { type: "p", text: "The repo doesn't say which skills lead, which cities have the most ads, or how many jobs the last run loaded, so there isn't a ranking on this page. The dashboard is built to answer those questions on whatever is in the mart today, and the live app is the place to read the current numbers." },
-          { type: "p", text: "What you can do with it: filter to a city or a skill, see how often each flagged skill appears in the ads that remain, see which employers have the most matching ads, see which skills show up in the same posting, and scan the newest headlines." },
+          { type: "p", text: "On 19 November 2026 I grabbed the live dashboard. The date range is set to 21 Oct to 19 Nov 2026, and the sidebar has a city filter with several cities selected. So this is a snapshot of that view, not every ad in Sweden." },
+          { type: "p", text: "In that view: 169 jobs, 14 remote, 150 senior roles, and 31 new in the last 48 hours." },
+          { type: "p", text: "SQL, Python, and Reports lead the skill chart. After those come Excel, Automation, dbt, Power BI, and Azure. The bars aren't labeled, so this is the order, not a count for each skill." },
+          { type: "p", text: "Veritaz AB leads the hiring chart." },
           {
             type: "figure",
-            src: "images/sweden-job-market.png",
-            width: 1910,
-            height: 957,
-            alt: "Streamlit dashboard of Swedish job ads, with skill bars, top employers, and a correlation heatmap. A city filter is applied.",
-            caption: "A screenshot of the Streamlit dashboard, the same one used on the project card. A city filter is on, so it isn't the unfiltered market. The repo doesn't store this image or a results export. Counts on it will not match the live app after the next daily load."
+            src: "images/sweden-dashboard-2026-11-19.png",
+            width: 1526,
+            height: 770,
+            alt: "Streamlit dashboard on 19 November 2026, city filter on, showing 169 jobs, 14 remote, 150 senior, and 31 new.",
+            caption: "Live dashboard, as of 19 November 2026. Date range 21 Oct to 19 Nov 2026. A city filter is on, so this isn't all of Sweden."
           }
         ]
       },
@@ -600,12 +591,12 @@ const CASE_STUDIES = [
         id: "next",
         heading: "What's next",
         blocks: [
-          { type: "p", text: "The README stops at how to run the project. It doesn't list a next version, so this isn't a roadmap I made up. A few gaps are visible in the repo itself." },
+          { type: "p", text: "I want to get better at pulling out more insight. Something that helps my own job search, and helps me understand the market." },
+          { type: "p", text: "A few concrete pieces of that:" },
           { type: "ul", items: [
             "The dbt tests folder is empty. Nothing checks that a headline survived staging, or that a skill flag is boolean.",
-            "The Claude script isn't on the daily job, and the dashboard doesn't read ai_enriched_mart. As it stands, the enrichment isn't part of what a visitor sees.",
-            "Each ingest replaces the raw table. Keeping a daily snapshot would make week to week change possible. Right now it isn't.",
-            "The root dbt_project folder and the Snowflake auth script are leftovers. They aren't on the path the workflow runs."
+            "Each ingest replaces the raw table. Keeping history, instead of replacing the table, would show how the market moves from week to week. Right now it can't.",
+            "A city breakdown wasn't part of this version. The sidebar can filter to cities, but the page doesn't show how the jobs split across them. That's a limit I could build next."
           ] }
         ]
       }
