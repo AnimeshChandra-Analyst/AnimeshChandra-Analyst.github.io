@@ -93,8 +93,8 @@ const CASE_STUDIES = [
       { value: "34", label: "PQLs showing in the app" },
       { value: "8", label: "accounts at risk" }
     ],
-    statsNote: "As of 19 November 2026, data refreshed at 15:08. These are the Account Hub tiles. The 34 PQLs haven't been checked against the answer key.",
-    footerNote: "The 19 November tiles are from the Account Hub, refreshed at 15:08. The segment table further down is the repo's 17 November write-up. When checked against the answer key on 29 September, all 24 PQLs were Champions. Later PQL lists weren't checked the same way.",
+    statsNote: "As of 19 November 2026, data refreshed at 15:08. These are the Account Hub tiles. Checked against the answer key that day, all 34 PQLs were still Champions.",
+    footerNote: "The 19 November tiles are from the Account Hub, refreshed at 15:08. The segment table further down is the repo's 17 November write-up. When checked against the answer key on 29 September 2026, all 24 PQLs were Champions, and on 19 November all 34 still were.",
     sections: [
       {
         id: "problem",
@@ -174,8 +174,8 @@ const CASE_STUDIES = [
         id: "findings",
         heading: "What I found",
         blocks: [
-          { type: "p", text: "As of 19 November 2026, data refreshed at 15:08: 630 accounts, $9,580 MRR ($114,960 ARR), 163 active paying accounts (25.9%), 34 PQLs, and 8 accounts at risk. That's what the Account Hub is showing. It isn't a new check of those 34 against the answer key." },
-          { type: "note", text: "The pipeline was down from 10 to 14 November because the Google Cloud trial ended and BigQuery went into sandbox mode. That five-day gap makes the health score look worse than reality for a couple of weeks, which is why some at-risk and watch numbers are higher than usual." },
+          { type: "p", text: "As of 19 November 2026, data refreshed at 15:08: 630 accounts, $9,580 MRR ($114,960 ARR), 163 active paying accounts (25.9%), 34 PQLs, and 8 accounts at risk. That's what the Account Hub is showing." },
+          { type: "note", text: "The pipeline was down from 10 to 14 November because the Google Cloud trial ended and BigQuery went into sandbox mode. The health score is temporarily noisy because of that. The five-day gap sits inside the 14-day comparison window, so steady users look like they suddenly dropped, which is why some at-risk and watch numbers are higher than usual. The PQL model looks at signals rather than drops, so it wasn't affected." },
           {
             type: "figure",
             src: "images/flowforge-accounts-2026-11-19.png",
@@ -231,8 +231,8 @@ const CASE_STUDIES = [
           { type: "p", text: "A product qualified lead is a company with 50 or more employees and at least 2 of these 3 signals in the last 14 days: 3 or more active users, 80% or more of its monthly credits used, or a new teammate invited. I skipped a 0 to 100 score. A short rule is easier to defend when someone asks why a weight is what it is. Sales time is expensive, so only companies big enough for an Enterprise conversation are worth a call." },
           { type: "p", text: "Health is for paying customers only, and it's rules rather than a model, because success needs to know why an account is red. Red means no activity in 14 days, or usage down by more than half versus the previous 14 days. Yellow means usage down by more than 25%. Everything else is green. Failed payments would be a strong third red signal, but Stripe's test card always succeeds, so every test invoice is paid. That's a later version." },
           { type: "p", text: "The overview mart collapses this into one label: churned, sales opportunity, at risk, watch, dormant free, active free, or healthy paying." },
-          { type: "p", text: "When checked against the answer key on 29 September, all 24 PQLs were Champions. No false positives in that check. Power Solos are kept out by the 50 employee rule, and Ghosts barely generate usage. I haven't run that check on the 34 PQLs showing on 19 November." },
-          { type: "p", text: "On the health model, every account flagged red was a Skeptic Exec. No Champion or Power Solo was flagged red. Of the five paying Skeptic Execs in that check, four came out red or yellow. The model only saw credit usage across two 14 day windows. It never saw the hidden types." },
+          { type: "p", text: "When checked against the answer key on 29 September 2026, all 24 PQLs were Champions, and on 19 November all 34 still were. Power Solos are kept out by the 50 employee rule, and Ghosts barely generate usage." },
+          { type: "p", text: "When checked against the answer key on 29 September 2026, every account flagged red was a Skeptic Exec. Of the five paying Skeptic Execs in that check, four came out red or yellow. On 19 November, of the 8 red accounts only 1 was a Skeptic Exec (6 Power Solos, 1 Champion). The model only saw credit usage across two 14 day windows. It never saw the hidden types." },
           { type: "p", text: "Identity resolution covered the planted gap. 203 of 225 accounts matched on the id Stripe stores in its metadata. The other 22 had no link at all and were recovered by matching on company name." },
           { type: "p", text: "The revenue page once disagreed with the accounts page, and the app is what exposed it. Ending MRR showed $4,380 while accounts showed $3,820. The gap was $560, exactly that week's expansion. New MRR was using each subscription's current price, so an account that started on Pro and moved to Team was counted as $100 of new revenue, and then the snapshot added the $80 upgrade again. New MRR now uses the price from the first time the snapshot saw that subscription, and a free to paid conversion counts as new, not expansion. After the fix, ending MRR matches total current MRR." },
           { type: "p", text: "In the week of 28 September, $1,680 of the MRR increase came from upgrades and $320 came from new customers. That's existing accounts growing into the product, which is the Champion behaviour showing up from the outside." },
