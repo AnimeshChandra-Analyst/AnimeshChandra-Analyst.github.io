@@ -32,7 +32,7 @@ const PROJECTS_DATA = [
      title: "Sweden Job Market Insights",
      description: "A full data pipeline tracking Sweden's data & analytics job market, using dbt and BigQuery for transformation and a Streamlit app surfacing thirteen role types, automated end-to-end with GitHub Actions.",
      tags: ["SQL","python","dbt", "BigQuery", "Streamlit", "GitHub Actions"],
-     image: "images/sweden-job-market.png",
+     image: "images/sweden-overview-2026-11-19.png",
      repoUrl: "https://github.com/AnimeshChandra-Analyst/Sweden-Job-Market-Insights",
      viewUrl: "https://animeshchandra-analystappio-sweden-job-market.streamlit.app/",
      caseStudy: "sweden-job-market"
@@ -563,11 +563,20 @@ const CASE_STUDIES = [
           { type: "p", text: "Veritaz AB leads the hiring chart." },
           {
             type: "figure",
-            src: "images/sweden-dashboard-2026-11-19.png",
-            width: 1526,
-            height: 770,
-            alt: "Streamlit dashboard on 19 November 2026, city filter on, showing 169 jobs, 14 remote, 150 senior, and 31 new.",
-            caption: "Live dashboard, as of 19 November 2026. Date range 21 Oct to 19 Nov 2026. A city filter is on, so this isn't all of Sweden."
+            src: "images/sweden-overview-2026-11-19.png",
+            width: 1520,
+            height: 614,
+            alt: "Sweden job dashboard on 19 November 2026, with 169 jobs, skill bars, and top hiring companies. A city filter is on.",
+            caption: "KPIs, top skills, and top hiring companies, as of 19 November 2026. A city filter is on, so this isn't all of Sweden."
+          },
+          { type: "p", text: "The other shot is the correlation matrix. It shows how often two skills show up in the same posting. Darker means they travel together more." },
+          {
+            type: "figure",
+            src: "images/sweden-correlation-2026-11-19.png",
+            width: 1486,
+            height: 670,
+            alt: "Tech stack correlation matrix for the Sweden job dashboard, as of 19 November 2026.",
+            caption: "Tech stack correlation matrix, as of 19 November 2026. How often skills show up together in the same job posting."
           }
         ]
       },
