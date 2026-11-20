@@ -81,10 +81,13 @@
         : "";
       const mediaHref = studyHref || externalHref;
       const mediaAttrs = studyHref ? "" : ` target="_blank" rel="noopener"`;
+      const size = Number.isFinite(p.imageWidth) && Number.isFinite(p.imageHeight)
+        ? ` width="${p.imageWidth}" height="${p.imageHeight}"`
+        : "";
       return `
       <article class="project-card${p.featured ? " featured" : ""}">
         <a class="project-media" href="${mediaHref}"${mediaAttrs}>
-          <img src="${p.image}" alt="${esc(p.title)}" loading="lazy" />
+          <img src="${p.image}" alt="${esc(p.title)}"${size} loading="lazy" />
         </a>
         <div class="project-body">
           <div class="project-tags">
