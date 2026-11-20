@@ -118,13 +118,81 @@ a:hover { text-decoration: underline; }
 
 .header-icons {
   display: flex;
+  align-items: center;
   gap: 1.25rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
 }
 
+.nav-toggle {
+  display: none;
+  margin: 0;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.nav-toggle:hover,
+.nav-toggle[aria-expanded="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 @media (max-width: 640px) {
-  .site-nav { display: none; }
+  .site-header { gap: 0.75rem; }
+  .brand { white-space: nowrap; }
+
+  .nav-toggle { display: inline-block; }
+
+  .header-icons { gap: 0.85rem; }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.35rem 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .site-header.is-nav-open .site-nav { display: flex; }
+
+  .site-nav a {
+    padding: 0.8rem clamp(1.25rem, 4vw, 3rem);
+  }
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    color: var(--accent);
+    background: var(--accent-soft);
+    text-decoration: none;
+  }
+}
+
+/* Name plus GitHub, LinkedIn, and Menu get tight below 400px. */
+@media (max-width: 400px) {
+  .site-header {
+    gap: 0.45rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+  .brand { font-size: 0.95rem; }
+  .header-icons { gap: 0.5rem; font-size: 0.74rem; }
+  .nav-toggle { padding: 0.26rem 0.4rem; }
+}
+
+@media (max-width: 340px) {
+  .brand { font-size: 0.9rem; }
+  .header-icons { gap: 0.4rem; }
 }
 
 /* ============================================
@@ -138,6 +206,7 @@ main {
 
 section {
   padding: clamp(2.5rem, 6vw, 5rem) 0;
+  scroll-margin-top: 5rem;
 }
 
 section h2 {

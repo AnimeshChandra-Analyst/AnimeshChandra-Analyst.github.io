@@ -322,8 +322,87 @@
     else if (query.addListener) query.addListener(drawPipeline);
   }
 
+  // ---- Mobile nav ----
+  function initMobileNav() {
+    const header = document.querySelector(".site-header");
+    const toggle = header && header.querySelector(".nav-toggle");
+    const nav = document.getElementById("site-nav");
+    if (!header || !toggle || !nav) return;
+
+    const mobileQuery = window.matchMedia("(max-width: 640px)");
+
+    function isOpen() {
+      return toggle.getAttribute("aria-expanded") === "true";
+    }
+
+    function setOpen(open) {
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.textContent = open ? "Close" : "Menu";
+      header.classList.toggle("is-nav-open", open);
+    }
+
+    toggle.addEventListener("click", () => {
+      const next = !isOpen();
+      setOpen(next);
+      if (next) {
+        const firstLink = nav.querySelector("a");
+        if (firstLink) firstLink.focus({ preventScroll: true });
+      }
+    });
+
+    nav.addEventListener("click", (event) => {
+      const link = event.target.closest("a");
+      if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const href = link.getAttribute("href") || "";
+      if (href.charAt(0) !== "#") {
+        setOpen(false);
+        return;
+      }
+      const target = document.getElementById(href.slice(1));
+      if (!target) {
+        setOpen(false);
+        return;
+      }
+      // The browser's hash jump moves focus back to the page after we hide
+      // the link, which cancels the scroll. Handle the jump here instead.
+      event.preventDefault();
+      const heading = target.querySelector("h1, h2") || target;
+      if (!heading.hasAttribute("tabindex")) heading.setAttribute("tabindex", "-1");
+      heading.focus({ preventScroll: true });
+      setOpen(false);
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      target.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" });
+      history.pushState(null, "", href);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen()) {
+        setOpen(false);
+        toggle.focus({ preventScroll: true });
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (isOpen() && !header.contains(event.target)) setOpen(false);
+    });
+
+    header.addEventListener("focusout", () => {
+      window.setTimeout(() => {
+        if (!isOpen()) return;
+        if (!header.contains(document.activeElement)) setOpen(false);
+      }, 0);
+    });
+
+    function onBreakpointChange(event) {
+      if (!event.matches) setOpen(false);
+    }
+    if (mobileQuery.addEventListener) mobileQuery.addEventListener("change", onBreakpointChange);
+    else if (mobileQuery.addListener) mobileQuery.addListener(onBreakpointChange);
+  }
+
   renderKpis();
   renderProjects();
   renderCaseStudy();
   renderYear();
+  initMobileNav();
 })();
