@@ -43,8 +43,7 @@ const PROJECTS_DATA = [
     description: "Analyzed 108K+ e-commerce transactions to uncover revenue trends, customer behavior patterns, and product performance insights.",
     tags: ["SQL", "Python", "Data Viz"],
     image: "images/bytss.png",
-    repoUrl: "https://github.com/AnimeshChandra-Analyst/ByteHaven-project",
-    viewUrl: "https://bit.ly/3EWHd5J"
+    repoUrl: "https://github.com/AnimeshChandra-Analyst/ByteHaven-project"
   },
   {
     featured: false,
@@ -52,7 +51,7 @@ const PROJECTS_DATA = [
     description: "Cleaned and ran exploratory data analysis on company layoff data to surface hiring and industry trends.",
     tags: ["SQL"],
     image: "images/Layoff.jpg",
-    viewUrl: "https://bit.ly/3EWHd5J"
+    viewUrl: "https://github.com/AnimeshChandra-Analyst/SQL-Layoff-Project/tree/main/SQL%20%20Company%20Layoffs%20Project"
   },
   {
     featured: false,
@@ -60,7 +59,7 @@ const PROJECTS_DATA = [
     description: "An interactive dashboard visualizing Airbnb listings across Stockholm: pricing, availability, and neighborhood trends in the short-term rental market.",
     tags: ["Tableau"],
     image: "images/Sthlm.jpg",
-    viewUrl: "https://bit.ly/3CKVhPm"
+    viewUrl: "https://public.tableau.com/app/profile/animesh.chandra7133/viz/StockholmAirBnbDashboard/AirBnBListingsStockholm?publish=yes"
   },
   {
     featured: false,
@@ -68,7 +67,7 @@ const PROJECTS_DATA = [
     description: "A SQL analysis of COVID-19 data covering infection rates, mortality statistics, and vaccination progress across regions.",
     tags: ["SQL"],
     image: "images/covid.png",
-    viewUrl: "https://bit.ly/4hYpJV0"
+    viewUrl: "https://github.com/AnimeshChandra-Analyst/SQL-Covid-19-Data-Exploration/tree/main"
   },
 ];
 
