@@ -57,7 +57,7 @@ const PROJECTS_DATA = [
   {
     featured: false,
     title: "Tableau Stockholm Airbnb Dashboard",
-    description: "An interactive dashboard visualizing Airbnb listings across Stockholm — pricing, availability, and neighborhood trends in the short-term rental market.",
+    description: "An interactive dashboard visualizing Airbnb listings across Stockholm: pricing, availability, and neighborhood trends in the short-term rental market.",
     tags: ["Tableau"],
     image: "images/Sthlm.jpg",
     viewUrl: "https://bit.ly/3CKVhPm"
