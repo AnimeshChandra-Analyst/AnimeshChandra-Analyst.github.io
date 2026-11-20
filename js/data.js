@@ -14,6 +14,8 @@ const PROJECTS_DATA = [
     description: "An end-to-end analytics engineering project on a simulated SaaS company. A Python simulator runs FlowForge inside HubSpot and Stripe, the pipeline pulls that data into BigQuery, models it with dbt (PQLs, account health, MRR), pushes results back to the CRM with reverse ETL, and feeds an internal Account Hub app for sales and CS.",
     tags: ["SQL", "Python", "dbt", "BigQuery", "Reverse ETL", "GitHub Actions"],
     image: "images/flowforge-accounts-2026-11-19.png",
+    imageWidth: 1520,
+    imageHeight: 793,
     repoUrl: "https://github.com/AnimeshChandra-Analyst/flowforge-gtm-analytics",
     viewUrl: "https://flowforge-account-hub.lovable.app/",
     caseStudy: "flowforge-gtm"
@@ -24,6 +26,8 @@ const PROJECTS_DATA = [
     description: "Why almost nobody comes back. Modelled ~100K e-commerce orders into retention, churn, LTV and segmentation, and found that 96.9% of customers never reorder, and that first-purchase category, not delivery or reviews, predicts who returns.",
     tags: ["SQL", "dbt", "BigQuery", "Power BI", "DAX"],
     image: "images/customer-health.png",
+    imageWidth: 1381,
+    imageHeight: 767,
     repoUrl: "https://github.com/AnimeshChandra-Analyst/Commercial-Analytics-Project",
     caseStudy: "customer-health"
   },
@@ -33,6 +37,8 @@ const PROJECTS_DATA = [
      description: "A full data pipeline tracking Sweden's data & analytics job market, using dbt and BigQuery for transformation and a Streamlit app surfacing thirteen role types, automated end-to-end with GitHub Actions.",
      tags: ["SQL","python","dbt", "BigQuery", "Streamlit", "GitHub Actions"],
      image: "images/sweden-overview-2026-11-19.png",
+     imageWidth: 1520,
+     imageHeight: 614,
      repoUrl: "https://github.com/AnimeshChandra-Analyst/Sweden-Job-Market-Insights",
      viewUrl: "https://animeshchandra-analystappio-sweden-job-market.streamlit.app/",
      caseStudy: "sweden-job-market"
@@ -43,6 +49,8 @@ const PROJECTS_DATA = [
     description: "Analyzed 108K+ e-commerce transactions to uncover revenue trends, customer behavior patterns, and product performance insights.",
     tags: ["SQL", "Python", "Data Viz"],
     image: "images/bytss.png",
+    imageWidth: 956,
+    imageHeight: 550,
     repoUrl: "https://github.com/AnimeshChandra-Analyst/ByteHaven-project",
     viewUrl: "https://bit.ly/3EWHd5J"
   },
@@ -52,6 +60,8 @@ const PROJECTS_DATA = [
     description: "Cleaned and ran exploratory data analysis on company layoff data to surface hiring and industry trends.",
     tags: ["SQL"],
     image: "images/Layoff.jpg",
+    imageWidth: 900,
+    imageHeight: 450,
     viewUrl: "https://bit.ly/3EWHd5J"
   },
   {
@@ -60,6 +70,8 @@ const PROJECTS_DATA = [
     description: "An interactive dashboard visualizing Airbnb listings across Stockholm: pricing, availability, and neighborhood trends in the short-term rental market.",
     tags: ["Tableau"],
     image: "images/Sthlm.jpg",
+    imageWidth: 960,
+    imageHeight: 640,
     viewUrl: "https://bit.ly/3CKVhPm"
   },
   {
@@ -67,7 +79,9 @@ const PROJECTS_DATA = [
     title: "Covid-19 Data Exploration with SQL",
     description: "A SQL analysis of COVID-19 data covering infection rates, mortality statistics, and vaccination progress across regions.",
     tags: ["SQL"],
-    image: "images/covid.png",
+    image: "images/covid.jpg",
+    imageWidth: 960,
+    imageHeight: 540,
     viewUrl: "https://bit.ly/4hYpJV0"
   },
 ];
