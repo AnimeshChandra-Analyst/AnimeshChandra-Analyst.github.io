@@ -118,13 +118,81 @@ a:hover { text-decoration: underline; }
 
 .header-icons {
   display: flex;
+  align-items: center;
   gap: 1.25rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
 }
 
+.nav-toggle {
+  display: none;
+  margin: 0;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.nav-toggle:hover,
+.nav-toggle[aria-expanded="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 @media (max-width: 640px) {
-  .site-nav { display: none; }
+  .site-header { gap: 0.75rem; }
+  .brand { white-space: nowrap; }
+
+  .nav-toggle { display: inline-block; }
+
+  .header-icons { gap: 0.85rem; }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.35rem 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .site-header.is-nav-open .site-nav { display: flex; }
+
+  .site-nav a {
+    padding: 0.8rem clamp(1.25rem, 4vw, 3rem);
+  }
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    color: var(--accent);
+    background: var(--accent-soft);
+    text-decoration: none;
+  }
+}
+
+/* Name plus GitHub, LinkedIn, and Menu get tight below 400px. */
+@media (max-width: 400px) {
+  .site-header {
+    gap: 0.45rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+  .brand { font-size: 0.95rem; }
+  .header-icons { gap: 0.5rem; font-size: 0.74rem; }
+  .nav-toggle { padding: 0.26rem 0.4rem; }
+}
+
+@media (max-width: 340px) {
+  .brand { font-size: 0.9rem; }
+  .header-icons { gap: 0.4rem; }
 }
 
 /* ============================================
@@ -138,6 +206,7 @@ main {
 
 section {
   padding: clamp(2.5rem, 6vw, 5rem) 0;
+  scroll-margin-top: 5rem;
 }
 
 section h2 {
@@ -280,7 +349,8 @@ section h2 {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  column-gap: 1.5rem;
+  row-gap: 0;
 }
 
 .project-card {
@@ -288,8 +358,10 @@ section h2 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -304,30 +376,56 @@ section h2 {
   grid-column: 1 / -1;
 }
 
-.project-card.featured .project-media {
-  aspect-ratio: 21 / 8;
-}
-
-@media (max-width: 700px) {
-  .project-card.featured .project-media { aspect-ratio: 16 / 9; }
-}
-
+/* Each frame matches its screenshot. Shorter shots stay top-aligned
+   so titles and links still line up across the row. */
 .project-media {
   aspect-ratio: 16 / 9;
+  align-self: start;
   overflow: hidden;
-  background: var(--accent-soft);
+  background: var(--panel);
+}
+
+.project-card.featured .project-media {
+  aspect-ratio: 1520 / 793;
+  background: #181519;
+}
+
+.project-media:has(img[src*="customer-health"]) {
+  aspect-ratio: 1381 / 767;
+  background: #dee0de;
+}
+
+.project-media:has(img[src*="sweden-overview"]) {
+  aspect-ratio: 1520 / 614;
+  background: #15171e;
+}
+
+.project-media:has(img[src*="bytss"]) {
+  aspect-ratio: 956 / 550;
+  background: #ffffff;
+}
+
+.project-media:has(img[src*="Layoff"]) {
+  aspect-ratio: 2 / 1;
+  background: #1c1c1c;
+}
+
+.project-media:has(img[src*="Sthlm"]) {
+  aspect-ratio: 3367 / 2244;
+  background: #0a7388;
+}
+
+.project-media:has(img[src*="covid"]) {
+  aspect-ratio: 1080 / 607;
+  background: #212121;
 }
 
 .project-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   display: block;
-  transition: transform 0.4s ease;
-}
-
-.project-card:hover .project-media img {
-  transform: scale(1.03);
 }
 
 .project-body {
