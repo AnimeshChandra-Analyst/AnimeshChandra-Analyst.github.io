@@ -51,8 +51,7 @@ const PROJECTS_DATA = [
     image: "images/bytss.png",
     imageWidth: 956,
     imageHeight: 550,
-    repoUrl: "https://github.com/AnimeshChandra-Analyst/ByteHaven-project",
-    viewUrl: "https://bit.ly/3EWHd5J"
+    repoUrl: "https://github.com/AnimeshChandra-Analyst/ByteHaven-project"
   },
   {
     featured: false,
@@ -62,7 +61,7 @@ const PROJECTS_DATA = [
     image: "images/Layoff.jpg",
     imageWidth: 900,
     imageHeight: 450,
-    viewUrl: "https://bit.ly/3EWHd5J"
+    viewUrl: "https://github.com/AnimeshChandra-Analyst/SQL-Layoff-Project/tree/main/SQL%20%20Company%20Layoffs%20Project"
   },
   {
     featured: false,
@@ -72,7 +71,7 @@ const PROJECTS_DATA = [
     image: "images/Sthlm.jpg",
     imageWidth: 960,
     imageHeight: 640,
-    viewUrl: "https://bit.ly/3CKVhPm"
+    viewUrl: "https://public.tableau.com/app/profile/animesh.chandra7133/viz/StockholmAirBnbDashboard/AirBnBListingsStockholm?publish=yes"
   },
   {
     featured: false,
@@ -82,7 +81,7 @@ const PROJECTS_DATA = [
     image: "images/covid.jpg",
     imageWidth: 960,
     imageHeight: 540,
-    viewUrl: "https://bit.ly/4hYpJV0"
+    viewUrl: "https://github.com/AnimeshChandra-Analyst/SQL-Covid-19-Data-Exploration/tree/main"
   },
 ];
 
